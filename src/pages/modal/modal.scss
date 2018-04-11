@@ -1,0 +1,19 @@
+page-modal {
+    ion-grid{
+        height:100%;
+    }
+    ion-row{
+        height:100%;
+    }
+    ion-icon{
+        font-size:3rem;
+        position:absolute;
+    }
+    .fabricaApp{
+        a{
+            color:map-get($colors,dark);
+
+        }
+    }
+
+}

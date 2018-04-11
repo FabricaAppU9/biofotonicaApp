@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>
+      Lasconf
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only modal class="developed_info">
+        <ion-icon name="ios-information-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+   
+</ion-header>
+
+
+<ion-content padding>
+  <h4 text-center class="title-page">Preencha os valores abaixo</h4>
+  <form [formGroup]="requirements" (submit)="generateConfigs()">
+
+    <ion-item class="select_item">
+      <ion-label floating color="secondary">Tamanho do feixe no alvo (cm²)</ion-label>
+      <ion-input type="number" formControlName="beamSize" min="0"></ion-input>
+      
+    </ion-item>
+    <ion-item class="select_item">
+      <ion-label floating color="secondary">Número de pontos irradiados</ion-label>
+      <ion-input type="number" formControlName="irradiatedSpots" min="1" ></ion-input>
+    </ion-item>
+
+     <div class="button_config">
+      <button ion-button color="quaternary" [disabled]="requirements.invalid">Gerar Configurações</button>
+    </div>
+
+  </form>
+
+</ion-content>

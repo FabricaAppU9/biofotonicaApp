@@ -1,0 +1,23 @@
+page-generated-configs {
+    ion-item{
+        .title_configs{
+           font-size: 1.4rem; 
+           color: map-get($colors, primary);
+           width: 50%;
+        }
+
+        .value_configs{
+            font-size: 1.4rem;
+            color: map-get($colors , secondary );
+            text-align:right;
+            width:80%;
+        }
+
+    }
+
+    .divider{
+        border-bottom:1px solid map-get($colors, tertiary);
+        margin:0px 3px;
+    }
+
+}

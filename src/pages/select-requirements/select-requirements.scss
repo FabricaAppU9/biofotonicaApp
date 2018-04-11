@@ -1,0 +1,28 @@
+
+$main-color: map-get($colors , primary );
+$second-color: map-get($colors, secondary);
+page-select-requirements {
+    
+    form{
+        margin-top:4rem;
+    }
+
+    .item-inner{
+        border:2px solid $main-color !important;
+        border-radius:5px;
+        padding:1px;
+    }
+   
+    .item-md, .item-ios{
+        color:$second-color;
+    }
+
+    ion-select{
+        
+        font-size:15px;
+    }
+  
+
+    
+
+}
