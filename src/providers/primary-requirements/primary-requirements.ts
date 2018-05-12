@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PrimaryRequirementsProvider {
 
-  private baseUrl = '';
+  private baseUrl = '/api/';
  
   private lights: string[];
   private diseases: string[];
@@ -15,28 +15,24 @@ export class PrimaryRequirementsProvider {
     
   }
   getLights(){
-    /*
       return this.http
-                 .get(this.baseUrl)
-                 .map(res => res.json())
-    
-    */
+                 .get(this.baseUrl+"fonte_tratamento")
+                 .toPromise();
   }
    
   getDiseases(lightSelected){
-     /*
       return this.http
-                 .get(this.baseUrl)
+                 .get(this.baseUrl+`doenca_tratamento/${lightSelected}`)
                  .map(res => res.json())
-    */
+    
   } 
 
-  getEquipments(diseaseSelected){
-     /*
+  getEquipments(lightSelected,diseaseSelected){
+     
       return this.http
-                 .get(this.baseUrl)
+                 .get(this.baseUrl+`equipamento_tratamento/${lightSelected}/${diseaseSelected}`)
                  .map(res => res.json())
-    */
+    
   }
   
 }

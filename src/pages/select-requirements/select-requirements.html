@@ -14,13 +14,13 @@
 </ion-header>
 
 <ion-content padding>
-  <h4 text-center class="title-page">Selecione os parâmetros</h4>
+  <h4 text-center class="title-page">Selecione os parâmetrossss</h4>
   <form [formGroup]="requirements" (submit)="nextPage()">
 
     <box-select-title title="Fonte de Luz">
       <ion-item >
         <ion-select  placeholder="Selecione a Fonte de Luz" interface="action-sheet" (ionChange)="selectLight($event)" formControlName="light">
-          <ion-option *ngFor="let light of lights" [value]="light">{{ light }}</ion-option>
+          <ion-option *ngFor="let light of lights" [value]="light">{{ light.nm_fonte }}</ion-option>
         </ion-select>
       </ion-item>
     </box-select-title>
@@ -28,7 +28,7 @@
     <box-select-title title="Doença">
       <ion-item>
         <ion-select placeholder="Selecione a Doença" interface="action-sheet" (ionChange)="selectDisease($event)"  formControlName="disease" >
-          <ion-option *ngFor="let disease of diseases" [value]="disease">{{ disease }}</ion-option>
+          <ion-option *ngFor="let disease of diseases" [value]="disease">{{ disease.nome_doenca }}</ion-option>
         </ion-select>
       </ion-item>
     </box-select-title>
@@ -36,7 +36,7 @@
     <box-select-title title="Equipamento">
         <ion-item>
           <ion-select placeholder="Selecione o Equipamento" interface="action-sheet" formControlName="equipment">
-            <ion-option *ngFor="let equipment of equipments" [value]="equipment"> {{ equipment }}</ion-option>
+            <ion-option *ngFor="let equipment of equipments" [value]="equipment"> {{ equipment.nm_equip }}</ion-option>
           </ion-select>
         </ion-item>
       </box-select-title>

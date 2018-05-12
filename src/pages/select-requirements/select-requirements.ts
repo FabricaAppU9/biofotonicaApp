@@ -12,9 +12,9 @@ import { PrimaryRequirementsProvider } from '../../providers/primary-requirement
 export class SelectRequirementsPage {
   requirements: FormGroup;
 
-  private lights:string[];
-  private diseases:string[];
-  private equipments:string[];
+  private lights:any[];
+  private diseases:any[];
+  private equipments:any[];
   equipmentControl: FormControl;
   diseaseControl: FormControl;
   lightControl: FormControl;
@@ -39,11 +39,15 @@ export class SelectRequirementsPage {
  }
 
   ionViewDidLoad(){
-    //http.get();
+    this.primaryRequirements.getLights()
+    .then(data => {
+      this.lights = data.json(); 
+    })
+    
   }
 
   ionViewDidEnter(){
-
+    //
   }
 
   selectLight(selected){
@@ -55,8 +59,8 @@ export class SelectRequirementsPage {
     else {
       this.diseaseControl.reset();
       this.diseaseControl.enable();
-      //http.get();
-      
+      this.primaryRequirements.getDiseases(selected.nm_fonte)
+          .subscribe(data => this.diseases = data);
     }
   }
   selectDisease(selected){
@@ -68,8 +72,8 @@ export class SelectRequirementsPage {
       else{
         this.equipmentControl.reset();
         this.equipmentControl.enable();
-        //http.get();
-  
+        this.primaryRequirements.getEquipments(this.lightControl.value.nm_fonte,selected.cid)
+          .subscribe(data => this.equipments = data);
       }
     }
     selectEquipment(){

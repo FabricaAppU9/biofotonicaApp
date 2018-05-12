@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController, AlertController  } from 'ionic-angular';
 import { GeneratedConfigsProvider } from '../../providers/generated-configs/generated-configs';
 import { SelectRequirementsPage } from '../select-requirements/select-requirements';
 import { Network } from '@ionic-native/network';
@@ -10,20 +10,26 @@ import { Network } from '@ionic-native/network';
   templateUrl: 'generated-configs.html',
 })
 export class GeneratedConfigsPage {
-  configs:any[];
+  configs:any;
   loading;
   constructor(public navCtrl: NavController,
    public navParams: NavParams,
    public generatedConfigs: GeneratedConfigsProvider, 
    public load: LoadingController,
    public toast: ToastController,
-   public network: Network
+   public network: Network,
+   public alertCtrl: AlertController
    ) {
-    let beamSize:number = this.navParams.get('beamSize');
-    let irradiatedSpots:number = this.navParams.get('irradiatedSpots')
-    this.configs = this.generatedConfigs.getConfigs(beamSize,irradiatedSpots);
-    this.loading = this.load.create({content: 'Carregando...'});
-    
+    let requirements = {
+      beamSize: this.navParams.get('beamSize'),
+      irradiatedSpots: this.navParams.get('irradiatedSpots'),
+      disease: this.navParams.get('disease'),
+      light: this.navParams.get('light'),
+      equipment: this.navParams.get('equipment')
+    }
+     this.generatedConfigs.getConfigs(requirements)
+       .subscribe(data => this.configs = data);
+
   }
 
   ionViewDidEnter(){
