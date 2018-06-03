@@ -11,7 +11,7 @@ import { PrimaryRequirementsProvider } from '../../providers/primary-requirement
 })
 export class SelectRequirementsPage {
   requirements: FormGroup;
-
+  private teste:any;
   private lights:any[];
   private diseases:any[];
   private equipments:any[];
@@ -42,7 +42,7 @@ export class SelectRequirementsPage {
     this.primaryRequirements.getLights()
     .then(data => {
       this.lights = data.json(); 
-    })
+    }).catch(err => console.log(err));
     
   }
 

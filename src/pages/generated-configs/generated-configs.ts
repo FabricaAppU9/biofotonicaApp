@@ -11,6 +11,7 @@ import { Network } from '@ionic-native/network';
 })
 export class GeneratedConfigsPage {
   configs:any;
+  requirements:any;
   loading;
   constructor(public navCtrl: NavController,
    public navParams: NavParams,
@@ -20,14 +21,17 @@ export class GeneratedConfigsPage {
    public network: Network,
    public alertCtrl: AlertController
    ) {
-    let requirements = {
+     this.requirements = {
       beamSize: this.navParams.get('beamSize'),
       irradiatedSpots: this.navParams.get('irradiatedSpots'),
-      disease: this.navParams.get('disease'),
+      disease:this.navParams.get('disease'),
       light: this.navParams.get('light'),
       equipment: this.navParams.get('equipment')
     }
-     this.generatedConfigs.getConfigs(requirements)
+   
+    
+    
+     this.generatedConfigs.getConfigs(this.requirements)
        .subscribe(data => this.configs = data);
 
   }

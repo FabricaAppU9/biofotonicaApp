@@ -21,7 +21,20 @@
 </ion-header>
 
 <ion-content >
-<!-- 
+  <ion-card >
+    <ion-item text-center>
+      <h2 class="title_setup">Fonte de Luz</h2>
+      <span class="value_setup">{{requirements.light.nm_fonte}}</span>
+    </ion-item> 
+    <ion-item text-center>
+      <h2 class="title_setup">Doença</h2>
+      <span class="value_setup">{{requirements.disease.nome_doenca}}</span>
+    </ion-item> 
+    <ion-item text-center>
+      <h2 class="title_setup">Equipamento</h2>
+      <span class="value_setup">{{requirements.equipment.nm_equip}}</span>
+    </ion-item> 
+  </ion-card>
   <ion-list no-lines>
     <div class="divider" *ngFor="let config of configs">
          <ion-item >
@@ -29,7 +42,6 @@
             <span item-end class="value_configs">{{config.value}}</span>
          </ion-item>
     </div>
-  </ion-list> -->
-  <pre>{{ configs | json }}</pre>
+  </ion-list>
 
 </ion-content>

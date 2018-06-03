@@ -13,11 +13,22 @@ page-generated-configs {
             width:80%;
         }
 
+        .title_setup {
+            color: map-get($colors, primary);
+        }
+
+        .value_setup {
+            color: map-get($colors, secondary);
+            font-size: 1.3rem;
+        }
+
     }
 
     .divider{
         border-bottom:1px solid map-get($colors, tertiary);
         margin:0px 3px;
     }
+
+  
 
 }

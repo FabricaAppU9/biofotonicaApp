@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PrimaryRequirementsProvider {
 
-  private baseUrl = '/api/';
+  private baseUrl = 'https://lasconf.azurewebsites.net/api/';
  
   private lights: string[];
   private diseases: string[];
@@ -15,6 +15,7 @@ export class PrimaryRequirementsProvider {
     
   }
   getLights(){
+      console.log(this.baseUrl);
       return this.http
                  .get(this.baseUrl+"fonte_tratamento")
                  .toPromise();

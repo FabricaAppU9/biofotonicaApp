@@ -10,7 +10,8 @@ export class GeneratedConfigsProvider {
 
   getConfigs(requirements){
   
-    return this.http.post("/api/gera_config",requirements);
+    return this.http.post("https://lasconf.azurewebsites.net/api/gera_config",requirements).
+    map(res => res.json());
     
   } 
 
